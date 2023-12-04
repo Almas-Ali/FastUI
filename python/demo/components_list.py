@@ -160,6 +160,12 @@ print(m.dimensions)
             ],
             class_name='border-top mt-3 pt-1',
         ),
+        c.Footer(
+            components=[
+                c.Paragraph(text='This is a footer'),
+            ],
+            class_name='border-top mt-3 pt-1',
+        ),
         title='Components',
     )
 

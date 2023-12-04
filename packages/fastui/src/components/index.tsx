@@ -38,6 +38,7 @@ import {
 } from './display'
 import { JsonComp, JsonProps } from './Json'
 import { ServerLoadComp, ServerLoadProps } from './ServerLoad'
+import { FooterComp, FooterProps } from './Footer'
 
 export type {
   TextProps,
@@ -63,6 +64,7 @@ export type {
   DisplayPrimitiveProps,
   JsonProps,
   ServerLoadProps,
+  FooterProps,
 }
 
 // TODO some better way to export components
@@ -169,6 +171,8 @@ export const AnyComp: FC<FastProps> = (props) => {
         return <JsonComp {...props} />
       case 'ServerLoad':
         return <ServerLoadComp {...props} />
+      case 'Footer':
+        return <FooterComp {...props} />
       default:
         unreachable('Unexpected component type', type, props)
         return <DisplayError title="Invalid Server Response" description={`Unknown component type: "${type}"`} />

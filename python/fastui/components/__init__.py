@@ -47,6 +47,7 @@ __all__ = (
     'Table',
     'Display',
     'Details',
+    'Footer',
 )
 
 
@@ -170,6 +171,16 @@ class ServerLoad(pydantic.BaseModel, extra='forbid'):
     type: typing.Literal['ServerLoad'] = 'ServerLoad'
 
 
+class Footer(pydantic.BaseModel, extra='forbid'):
+    """
+    A component that will be placed at the bottom of the page.
+    """
+
+    components: list[AnyComponent]
+    class_name: _class_name.ClassName = None
+    type: typing.Literal['Footer'] = 'Footer'
+
+
 AnyComponent = typing.Annotated[
     Text
     | Paragraph
@@ -191,6 +202,7 @@ AnyComponent = typing.Annotated[
     | Details
     | Form
     | ModelForm
+    | Footer
     | FormField,
     pydantic.Field(discriminator='type'),
 ]
